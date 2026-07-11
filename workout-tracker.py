@@ -26,7 +26,11 @@ while True:
 
     elif choice == "2":
         print("View Workouts Selected")
-        print(workouts)
+        if len(workouts) == 0:
+            print("No workouts added yet...")
+        for index, workout in enumerate(workouts, start=1):
+            print(f"{index}. {workout['exercise']} {workout['sets']} x {workout['reps']} @{workout['weight']} lbs")
+
     elif choice == "3":
         print("Goodbye!")
         break
