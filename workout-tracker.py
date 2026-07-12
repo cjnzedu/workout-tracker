@@ -22,10 +22,15 @@ def show_menu():
 
 def add_workout(workouts):
     print("Add Workouts Selected")
-    exercise = input("What Exercise do you want to add: ")
-    sets = int(input("Sets: "))
-    reps = int(input("Reps: "))
-    weight = int(input("Weight: "))
+    while True:
+        exercise = input("What Exercise do you want to add: ").strip()
+        if exercise:
+            break
+        print("Enter a valid exercise name")
+    
+    sets = get_positive_number("Sets: ")
+    reps = get_positive_number("Reps: ")
+    weight = get_positive_number("Weight: ")
 
     workout = {
         "exercise": exercise,
@@ -43,5 +48,18 @@ def view_workouts(workouts):
         return
     for index, workout in enumerate(workouts, start=1):
         print(f"{index}. {workout['exercise']} {workout['sets']} x {workout['reps']} @{workout['weight']} lbs")
+
+def get_positive_number(prompt):
+    while True:
+        try:
+            num = int(input(prompt))
+            if num <= 0:
+                other = prompt.strip(" :")
+                print(f"{other} must be greater than 0...")
+            else:
+                return num
+        except ValueError:
+            print("Please enter a whole number")
+
 
 main()
