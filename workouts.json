@@ -1,0 +1,20 @@
+[
+    {
+        "exercise": "Bench Press",
+        "sets": 2,
+        "reps": 3,
+        "weight": 200
+    },
+    {
+        "exercise": "Squat",
+        "sets": 2,
+        "reps": 6,
+        "weight": 225
+    },
+    {
+        "exercise": "Pushups",
+        "sets": 2,
+        "reps": 20,
+        "weight": 10
+    }
+]

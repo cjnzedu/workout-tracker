@@ -1,5 +1,7 @@
+import json
+
 def main():
-    workouts = []
+    workouts = load_workouts()
     while True:
         show_menu()
         choice = input("What do you want to do:  ")
@@ -39,6 +41,7 @@ def add_workout(workouts):
         "weight": weight
     }
     workouts.append(workout)
+    save_workouts(workouts)
     print("Workout Added!")
 
 def view_workouts(workouts):
@@ -60,6 +63,18 @@ def get_positive_number(prompt):
                 return num
         except ValueError:
             print("Please enter a whole number")
+
+def save_workouts(workouts):
+    with open("workouts.json", "w") as file:
+        json.dump(workouts, file, indent=4)
+
+def load_workouts():
+    try:
+        with open("workouts.json", "r") as file:
+            workouts = json.load(file)
+            return workouts
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
 
 
 if __name__ == "__main__":
