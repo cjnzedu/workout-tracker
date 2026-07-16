@@ -62,4 +62,5 @@ def get_positive_number(prompt):
             print("Please enter a whole number")
 
 
-main()
+if __name__ == "__main__":
+    main()
