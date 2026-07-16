@@ -10,6 +10,8 @@ def main():
         elif choice == "2":
             view_workouts(workouts)
         elif choice == "3":
+            delete_workout(workouts)
+        elif choice == "4":
             print("Goodbye!")
             break
         else:
@@ -19,7 +21,8 @@ def show_menu():
     print("\nWorkout Tracker")
     print("1. Add Workout")
     print("2. View Workouts")
-    print("3. Quit")
+    print("3. Delete Workout")
+    print("4. Quit")
         
 
 def add_workout(workouts):
@@ -57,8 +60,8 @@ def get_positive_number(prompt):
         try:
             num = int(input(prompt))
             if num <= 0:
-                other = prompt.strip(" :")
-                print(f"{other} must be greater than 0...")
+                field_name = prompt.strip(" :")
+                print(f"{field_name} must be greater than 0...")
             else:
                 return num
         except ValueError:
@@ -76,6 +79,29 @@ def load_workouts():
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
+
+def delete_workout(workouts):
+    if not workouts:
+        print("No workouts to delete...")
+        return
+    
+    view_workouts(workouts)
+    while True:
+        try:
+            choice = int(input("Delete workout number: "))
+            if choice > len(workouts):
+                print("\nThere's not that many workouts")
+            elif choice < 1:
+                print("\nInvalid Workout number")
+            else:
+                deleted = workouts.pop(choice - 1)
+                save_workouts(workouts)
+                print(f"Successfully deleted {deleted['exercise']}")
+                view_workouts(workouts)
+                return
+        except ValueError:
+            print("\nInvalid workout number.")
+    
 
 if __name__ == "__main__":
     main()

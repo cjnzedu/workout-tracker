@@ -1,20 +1,14 @@
 [
     {
-        "exercise": "Bench Press",
-        "sets": 2,
-        "reps": 3,
-        "weight": 200
-    },
-    {
         "exercise": "Squat",
         "sets": 2,
-        "reps": 6,
+        "reps": 8,
         "weight": 225
     },
     {
-        "exercise": "Pushups",
+        "exercise": "Bicep Curl",
         "sets": 2,
-        "reps": 20,
-        "weight": 10
+        "reps": 10,
+        "weight": 40
     }
 ]
