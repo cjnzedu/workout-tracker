@@ -12,6 +12,8 @@ def main():
         elif choice == "3":
             delete_workout(workouts)
         elif choice == "4":
+            edit_workout(workouts)
+        elif choice == "5":
             print("Goodbye!")
             break
         else:
@@ -22,7 +24,8 @@ def show_menu():
     print("1. Add Workout")
     print("2. View Workouts")
     print("3. Delete Workout")
-    print("4. Quit")
+    print("4. Edit Workout")
+    print("5. Quit")
         
 
 def add_workout(workouts):
@@ -101,6 +104,59 @@ def delete_workout(workouts):
                 return
         except ValueError:
             print("\nInvalid workout number.")
+
+def get_optional_number(prompt):
+    while True:
+        try:
+            num = input(prompt).strip()
+            if not num:
+                return
+            num = int(num)
+            if num <= 0:
+                field_name = prompt.strip(" :")
+                print(f"{field_name} must be greater than 0...")
+            else:
+                return num
+        except ValueError:
+            print("Please enter a whole number")
+
+def edit_workout(workouts):
+    if not workouts:
+        print("There are no workouts to edit...")
+        return
+
+    view_workouts(workouts)
+    while True:
+        try:
+            choice = int(input("Which workout would you like to edit? "))
+            if choice > len(workouts):
+                print("\nThere's not that many workouts")
+            elif choice < 1:
+                print("\nInvalid Workout number")
+            else:
+                break
+        except ValueError:
+            print("\nInvalid workout number.")
+
+    workout = workouts[choice - 1]
+    new_exercise = input(f"Exercise [{workout['exercise']}]: ").strip()
+    new_sets = get_optional_number(f"Sets [{workout['sets']}]: ")
+    new_reps = get_optional_number(f"Reps [{workout['reps']}]: ")
+    new_weight = get_optional_number(f"Weight [{workout['weight']}]: ")
+
+    if new_exercise:
+        workout["exercise"] = new_exercise
+    if new_sets is not None:
+        workout["sets"] = new_sets
+    if new_reps is not None:
+        workout["reps"] = new_reps
+    if new_weight is not None:
+        workout["weight"] = new_weight
+    
+    save_workouts(workouts)
+    print("Workout updated successfully.")
+    view_workouts(workouts)
+
     
 
 if __name__ == "__main__":
