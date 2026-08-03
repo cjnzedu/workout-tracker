@@ -10,5 +10,19 @@
         "sets": 2,
         "reps": 8,
         "weight": 100
+    },
+    {
+        "exercise": "Squat",
+        "sets": 2,
+        "reps": 8,
+        "weight": 220,
+        "date": "2026-08-03"
+    },
+    {
+        "exercise": "Leg Extension",
+        "sets": 2,
+        "reps": 8,
+        "weight": 100,
+        "date": "2026-08-03"
     }
 ]

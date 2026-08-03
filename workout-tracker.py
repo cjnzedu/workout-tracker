@@ -1,3 +1,4 @@
+from datetime import date
 import json
 
 def main():
@@ -40,11 +41,14 @@ def add_workout(workouts):
     reps = get_positive_number("Reps: ")
     weight = get_positive_number("Weight: ")
 
+    today = date.today()
+    print(today)
     workout = {
         "exercise": exercise,
         "sets": sets,
         "reps": reps,
-        "weight": weight
+        "weight": weight,
+        "date": str(today)
     }
     workouts.append(workout)
     save_workouts(workouts)
@@ -56,7 +60,7 @@ def view_workouts(workouts):
         print("No workouts added yet...")
         return
     for index, workout in enumerate(workouts, start=1):
-        print(f"{index}. {workout['exercise']} {workout['sets']} x {workout['reps']} @{workout['weight']} lbs")
+        print(f"{index}. {workout['exercise']} {workout['sets']} x {workout['reps']} @{workout['weight']} lbs - {workout.get("date", "Unknown Date")}")
 
 def get_positive_number(prompt):
     while True:
