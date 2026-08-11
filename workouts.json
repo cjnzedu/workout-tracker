@@ -1,11 +1,5 @@
 [
     {
-        "exercise": "Bench Press",
-        "sets": 135,
-        "reps": 8,
-        "weight": 225
-    },
-    {
         "exercise": "Bicep Curls",
         "sets": 2,
         "reps": 8,
@@ -24,5 +18,12 @@
         "reps": 8,
         "weight": 100,
         "date": "2026-08-03"
+    },
+    {
+        "exercise": "Calf Raises",
+        "sets": 2,
+        "reps": 15,
+        "weight": 200,
+        "date": "2026-08-11"
     }
 ]
