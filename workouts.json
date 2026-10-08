@@ -1,64 +1,18 @@
 [
     {
-        "exercise": "Bicep Curls",
-        "sets": 2,
-        "reps": 8,
-        "weight": 100
-    },
-    {
-        "exercise": "Squat",
-        "sets": 2,
-        "reps": 8,
-        "weight": 220,
-        "date": "2026-08-03"
-    },
-    {
-        "exercise": "Leg Extension",
-        "sets": 2,
-        "reps": 8,
-        "weight": 100,
-        "date": "2026-08-03"
-    },
-    {
-        "exercise": "Calf Raises",
-        "sets": 2,
-        "reps": 15,
-        "weight": 200,
-        "date": "2026-08-11"
-    },
-    {
-        "exercise": "",
-        "sets": 2,
-        "reps": 8,
-        "weight": 285,
-        "date": "2026-08-13"
-    },
-    {
-        "exercise": "Bench Press",
-        "sets": 1,
-        "reps": 1,
-        "weight": 0,
-        "date": "2026-10-07"
-    },
-    {
-        "exercise": "Bench Press",
-        "sets": 1,
-        "reps": 1,
-        "weight": 225,
-        "date": "2026-10-07"
-    },
-    {
-        "exercise": "Weighted Dips",
-        "sets": 2,
-        "reps": 6,
-        "weight": 50,
-        "date": "2026-10-07"
-    },
-    {
         "exercise": "Romanian Deadlift",
         "sets": 2,
         "reps": 8,
         "weight": 225,
-        "date": "2026-10-07"
+        "date": "2026-10-07",
+        "volume": 3600
+    },
+    {
+        "exercise": "Deadlift",
+        "sets": 2,
+        "reps": 6,
+        "weight": 250,
+        "date": "2026-10-07",
+        "volume": 3000
     }
 ]

@@ -39,3 +39,21 @@ else:
         workout["volume"] = calculate_volume(workout)
     st.dataframe(workouts)
 
+
+workout_options = []
+
+for workout in workouts:
+    # Create a label using an f-string
+    label = f"{workout['exercise']} — {workout['sets']} x {workout['reps']} @ {workout['weight']} lbs"
+    # Add the label to workout_options
+    workout_options.append(label)
+if workouts:
+    st.subheader("Delete Workout")
+    selected = st.selectbox("Choose a workout", options=range(len(workout_options)),
+    format_func=lambda i: workout_options[i])
+    if st.button("Delete Workout"):
+        deleted_workout = workouts.pop(selected)
+        save_workouts(workouts)
+        #st.success(f"Deleted {deleted_workout['exercise']}!")
+        st.rerun()
+
