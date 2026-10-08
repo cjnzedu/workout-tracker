@@ -1,5 +1,5 @@
 import streamlit as st
-from workout_tracker import load_workouts, save_workouts
+from workout_tracker import load_workouts, save_workouts, calculate_volume
 from datetime import date
 workouts = load_workouts()
 
@@ -16,15 +16,26 @@ with st.form("add_workout_form"):
     submitted = st.form_submit_button("Add Workout")
 
 if submitted:
-    workout = {
+    if not exercise.strip():
+        st.error("Please enter an exercise name.")
+    else:
+        workout = {
         "exercise": exercise,
         "sets": sets,
         "reps": reps,
         "weight": weight,
         "date": str(date.today())
     }
-    workouts.append(workout)
-    st.write(exercise, sets, reps, weight)
-    st.success("Workout added successfully!")
-    save_workouts(workouts)
-    
+        workouts.append(workout)
+        st.write(exercise, sets, reps, weight)
+        st.success("Workout added successfully!")
+        save_workouts(workouts)
+
+st.subheader("Workout History")
+if not workouts:
+    st.info("No workouts added yet.")
+else:
+    for workout in workouts:
+        workout["volume"] = calculate_volume(workout)
+    st.dataframe(workouts)
+
